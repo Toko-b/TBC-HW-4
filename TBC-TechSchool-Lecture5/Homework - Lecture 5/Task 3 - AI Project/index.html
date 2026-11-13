@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CosmoFacts 🚀 – კოსმოსისა და მეცნიერების ფაქტები</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen py-10 px-4 flex flex-col items-center justify-center font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Background Glow Decorative Elements -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl"></div>
+  </div>
+
+  <main class="w-full max-w-2xl bg-slate-900/90 border border-slate-800 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-10 transition-all">
+
+    <!-- Header Section -->
+    <header class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 px-3.5 py-1.5 rounded-full text-xs text-indigo-400 font-semibold mb-3.5">
+        <span>🌌</span> სამეცნიერო აღმოჩენები & კოსმოსი
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 mb-2">
+        CosmoFacts 🪐
+      </h1>
+      <p class="text-slate-400 text-sm max-w-md mx-auto">
+        აღმოაჩინე გასაოცარი ფაქტები სამყაროს, მეცნიერებისა და ტექნოლოგიების შესახებ, გაფილტრე და შეინახე რჩეულებში.
+      </p>
+    </header>
+
+    <!-- Category Filters -->
+    <section class="mb-6">
+      <div class="flex flex-wrap items-center justify-center gap-2" id="filter-buttons">
+        <button data-category="all" class="filter-btn active bg-indigo-600 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full transition shadow-sm hover:scale-105 active:scale-95">
+          ✨ ყველა
+        </button>
+        <button data-category="space" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-medium px-3.5 py-1.5 rounded-full transition hover:scale-105 active:scale-95">
+          🚀 კოსმოსი
+        </button>
+        <button data-category="physics" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-medium px-3.5 py-1.5 rounded-full transition hover:scale-105 active:scale-95">
+          ⚛️ ფიზიკა
+        </button>
+        <button data-category="nature" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-medium px-3.5 py-1.5 rounded-full transition hover:scale-105 active:scale-95">
+          🌍 ბუნება
+        </button>
+        <button data-category="tech" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-medium px-3.5 py-1.5 rounded-full transition hover:scale-105 active:scale-95">
+          💻 ტექნოლოგია
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Fact Display Card -->
+    <article class="relative bg-gradient-to-b from-slate-800/80 to-slate-850/90 border border-slate-700/70 rounded-2xl p-6 sm:p-8 mb-6 shadow-xl overflow-hidden transition-all duration-300">
+      
+      <!-- Decorative background icon -->
+      <span class="absolute -bottom-6 -right-4 text-8xl text-indigo-500/5 select-none pointer-events-none font-sans">
+        🔭
+      </span>
+
+      <!-- Fact Header: Category & Source -->
+      <div class="flex items-center justify-between gap-3 mb-4">
+        <span id="fact-category" class="bg-indigo-500/20 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full border border-indigo-500/30">
+          🚀 კოსმოსი
+        </span>
+        <span id="fact-source" class="text-xs text-slate-400 font-medium">
+          წყარო: NASA & Science Explorer
+        </span>
+      </div>
+
+      <!-- Fact Text -->
+      <div class="min-h-[100px] flex items-center mb-6">
+        <p id="fact-text" class="text-lg sm:text-xl font-medium text-slate-100 leading-relaxed transition-opacity duration-300">
+          "ერთ დღე-ღამე ვენერაზე უფრო დიდხანს გრძელდება, ვიდრე ერთი მთლიანი წელიწადი ვენერაზე."
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-700/60">
+        <button 
+          id="new-fact-btn" 
+          class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 active:scale-95 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-indigo-500/25 cursor-pointer"
+        >
+          <span>🎲</span> ახალი ფაქტი
+        </button>
+
+        <button 
+          id="save-fact-btn" 
+          class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-750 active:scale-95 border border-slate-700 hover:border-indigo-500/50 text-indigo-300 hover:text-white font-medium px-5 py-2.5 rounded-xl text-sm transition cursor-pointer"
+        >
+          <span>⭐</span> რჩეულებში შენახვა
+        </button>
+      </div>
+    </article>
+
+    <!-- Feedback Toast Notification -->
+    <div id="toast-message" class="hidden text-center text-xs font-medium py-2 px-4 rounded-xl mb-4 transition-all duration-300"></div>
+
+    <!-- Favorites Section -->
+    <section class="mt-8 pt-6 border-t border-slate-800">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-sm font-semibold text-slate-300 flex items-center gap-2">
+          <span>⭐</span> რჩეული ფაქტები
+        </h2>
+        <span id="favorites-count" class="text-xs font-medium text-slate-400 bg-slate-800 px-2.5 py-1 rounded-full border border-slate-700/60">
+          0 ფაქტი
+        </span>
+      </div>
+
+      <!-- Favorites List Container -->
+      <ul id="favorites-list" class="space-y-2.5 max-h-64 overflow-y-auto pr-1">
+        <!-- Empty State Default -->
+        <li id="empty-state" class="text-center py-8 text-slate-500 text-xs">
+          <p class="text-2xl mb-2">🪐</p>
+          რჩეული ფაქტების სია ჯერ ცარიელია.<br />
+          მოგეწონა ფაქტი? დააჭირე <strong class="text-slate-400">"რჩეულებში შენახვას"</strong>!
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="mt-6 text-center text-xs text-slate-400">
+    შექმნილია AI-ს დახმარებით · TBC Tech School & Antigravity
+  </footer>
+
+  <!-- Project Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
+
